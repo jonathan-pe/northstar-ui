@@ -15,6 +15,7 @@ RTL support is not complete with `components.json` alone. Consuming apps should 
 
 - Set `dir` and `lang` on the root HTML element for the active locale.
 - Wrap app content with `DirectionProvider` from `src/components/ui/direction.tsx`.
+- Reuse `src/lib/direction.ts` helpers to normalize/apply direction consistently in app shell and Storybook.
 
 Example:
 

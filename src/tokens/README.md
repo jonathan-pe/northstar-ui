@@ -26,3 +26,4 @@ Example:
 ```ts
 import { lightThemeCssVars } from '@/tokens/web-tailwind'
 ```
+

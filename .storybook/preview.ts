@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { createElement } from 'react'
 import { DirectionProvider } from '../src/components/ui/direction'
+import { applyDocumentDirection, normalizeDirection } from '../src/lib/direction'
 
 const preview: Preview = {
   globalTypes: {
@@ -19,9 +20,8 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const direction = context.globals.direction === 'rtl' ? 'rtl' : 'ltr'
-      document.documentElement.setAttribute('dir', direction)
-      document.documentElement.setAttribute('lang', direction === 'rtl' ? 'ar' : 'en')
+      const direction = normalizeDirection(context.globals.direction)
+      applyDocumentDirection(direction)
 
       return createElement(
         DirectionProvider,
