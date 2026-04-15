@@ -9,10 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:storybook": "vitest --project=storybook"
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.2.8",
+    "@fontsource-variable/noto-sans-arabic": "^5.2.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.8.0",
