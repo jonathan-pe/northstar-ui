@@ -17,6 +17,35 @@ Current runtime compatibility targets:
 - React DOM `^19`
 - Tailwind CSS `^4`
 
+## Installation
+
+```bash
+pnpm add northstar-ui
+```
+
+Peer dependencies expected in consuming apps:
+
+- `react@^19`
+- `react-dom@^19`
+- `tailwindcss@^4`
+
+## Import patterns
+
+Use stable subpath contracts:
+
+```ts
+import { Button, Input } from "northstar-ui/primitives"
+import { LoginCard, AppSidebar } from "northstar-ui/composites"
+import { semanticTokens } from "northstar-ui/tokens"
+```
+
+## Theme + style expectations
+
+- Tailwind and shadcn utility classes are used by primitives/composites.
+- Semantic token source lives in `src/tokens/semantic.ts`.
+- Web mapping utilities live in `src/tokens/web-tailwind.ts`.
+- Dark mode styles are built-in and validated in Storybook stories.
+
 ## Available scripts
 
 - `pnpm dev` - run Vite app
@@ -37,6 +66,7 @@ See `docs/rtl.md` for:
 - `dir`/`lang` wiring expectations
 - font strategy for RTL scripts
 - verification checklist for LTR/RTL behavior
+- Storybook direction toolbar usage (LTR/RTL)
 
 ## Releases (Changesets)
 
@@ -51,3 +81,9 @@ CI/CD:
 - `.github/workflows/release.yml` runs on `main` pushes
 - creates/updates a release PR when unpublished changesets exist
 - publishes when release commit lands (requires `NPM_TOKEN` secret)
+
+## Maintenance
+
+- Update playbook: `docs/maintenance.md`
+- RTL guide: `docs/rtl.md`
+- Token contract guide: `src/tokens/README.md`
