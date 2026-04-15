@@ -66,7 +66,7 @@ export const RTL: Story = {
 export const Dark: Story = {
   decorators: [
     (Story) => (
-      <div className="dark bg-background p-6">
+      <div className="dark bg-background text-foreground p-6">
         <Story />
       </div>
     ),

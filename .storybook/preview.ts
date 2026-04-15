@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite'
 import { createElement } from 'react'
+import '../src/index.css'
 import { DirectionProvider } from '../src/components/ui/direction'
 import { applyDocumentDirection, normalizeDirection } from '../src/lib/direction'
 
