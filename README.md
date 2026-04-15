@@ -93,3 +93,4 @@ Publishing notes:
 - Update playbook: `docs/maintenance.md`
 - RTL guide: `docs/rtl.md`
 - Token contract guide: `src/tokens/README.md`
+- AI context (living): `docs/ai-context.md`
