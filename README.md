@@ -2,6 +2,21 @@
 
 Reusable React design library scaffold built with Vite, TypeScript, Tailwind, shadcn, Storybook, and Vitest.
 
+## Package contract (Ticket 1)
+
+Canonical import paths:
+
+- `northstar-ui/primitives`
+- `northstar-ui/composites`
+- `northstar-ui/tokens`
+- `northstar-ui` (aggregated root export)
+
+Current runtime compatibility targets:
+
+- React `^19`
+- React DOM `^19`
+- Tailwind CSS `^4`
+
 ## Available scripts
 
 - `pnpm dev` - run Vite app
