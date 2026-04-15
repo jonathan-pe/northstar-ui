@@ -2,14 +2,16 @@ import * as React from 'react'
 
 import { Checkbox as BaseCheckbox } from '@/components/ui/checkbox'
 
-type CheckboxProps = React.ComponentProps<typeof BaseCheckbox>
+type CheckboxElement = React.ElementRef<typeof BaseCheckbox>
+type CheckboxProps = React.ComponentPropsWithoutRef<typeof BaseCheckbox>
 
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof BaseCheckbox>,
-  CheckboxProps
->(({ className, ...props }, ref) => {
-  return <BaseCheckbox ref={ref} className={className} {...props} />
-})
+const Checkbox: React.ForwardRefExoticComponent<
+  CheckboxProps & React.RefAttributes<CheckboxElement>
+> = React.forwardRef<CheckboxElement, CheckboxProps>(
+  ({ className, ...props }, ref) => {
+    return <BaseCheckbox ref={ref} className={className} {...props} />
+  },
+)
 
 Checkbox.displayName = 'Checkbox'
 

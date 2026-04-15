@@ -82,6 +82,12 @@ CI/CD:
 - creates/updates a release PR when unpublished changesets exist
 - publishes when release commit lands (requires `NPM_TOKEN` secret)
 
+Publishing notes:
+
+- package exports resolve from `dist/*` artifacts
+- run `pnpm build:lib` to produce release artifacts locally
+- ensure `NPM_TOKEN` is configured in repository secrets for automated publish
+
 ## Maintenance
 
 - Update playbook: `docs/maintenance.md`

@@ -28,7 +28,7 @@ const meta = {
       </div>
 
       <Select defaultValue="a">
-        <SelectTrigger className="w-[220px]">
+        <SelectTrigger className="w-[220px]" aria-label="Example select">
           <SelectValue placeholder="Select an option" />
         </SelectTrigger>
         <SelectContent>
@@ -67,4 +67,14 @@ export const RTL: Story = {
   globals: {
     direction: 'rtl',
   },
+}
+
+export const Dark: Story = {
+  decorators: [
+    (Story) => (
+      <div className="dark bg-background p-6">
+        <Story />
+      </div>
+    ),
+  ],
 }

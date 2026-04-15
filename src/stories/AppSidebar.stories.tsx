@@ -33,3 +33,13 @@ export const RTL: Story = {
     direction: 'rtl',
   },
 }
+
+export const Dark: Story = {
+  decorators: [
+    (Story) => (
+      <div className="dark bg-background p-6">
+        <Story />
+      </div>
+    ),
+  ],
+}
