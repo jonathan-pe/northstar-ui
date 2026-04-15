@@ -1,3 +1,1 @@
-// Ticket 1 export contract placeholder.
-// Concrete composite exports (e.g., LoginCard, AppSidebar) are added in later tickets.
-export {}
+export { LoginCard, type LoginCardProps } from '@/composites/LoginCard'
