@@ -21,7 +21,7 @@ export default defineConfig([globalIgnores(['dist']), {
     globals: globals.browser,
   },
 }, {
-  files: ['src/components/ui/**/*.tsx'],
+  files: ['src/components/ui/**/*.tsx', 'src/primitives/wrappers/**/*.tsx'],
   rules: {
     'react-refresh/only-export-components': 'off',
   },

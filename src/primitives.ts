@@ -1,4 +1,4 @@
-export { Button, buttonVariants } from '@/components/ui/button'
+export { Button, buttonVariants, Checkbox, Input, Textarea } from '@/primitives/wrappers'
 export {
   Dialog,
   DialogClose,
