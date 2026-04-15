@@ -24,6 +24,7 @@ Current runtime compatibility targets:
 - `pnpm lint` - run ESLint
 - `pnpm storybook` - run Storybook locally
 - `pnpm build-storybook` - build static Storybook
+- `pnpm test:unit` - run Vitest primitive/composite unit tests
 - `pnpm test:storybook` - run Storybook interaction tests (includes RTL sanity stories)
 
 ## RTL
