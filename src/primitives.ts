@@ -1,5 +1,7 @@
-export { Button, buttonVariants, Checkbox, Input, Textarea } from '@/primitives/wrappers'
 export {
+  Button,
+  buttonVariants,
+  Checkbox,
   Dialog,
   DialogClose,
   DialogContent,
@@ -10,11 +12,29 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
-export { DirectionProvider, useDirection } from '@/components/ui/direction'
-export {
+  Input,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+  Switch,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  tabsListVariants,
+  Textarea,
+  Toaster,
+  toast,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@/primitives/wrappers'
+export { DirectionProvider, useDirection } from '@/components/ui/direction'
