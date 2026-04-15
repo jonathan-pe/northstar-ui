@@ -37,3 +37,17 @@ See `docs/rtl.md` for:
 - `dir`/`lang` wiring expectations
 - font strategy for RTL scripts
 - verification checklist for LTR/RTL behavior
+
+## Releases (Changesets)
+
+Versioning and changelogs are managed with Changesets.
+
+- Create a changeset: `pnpm changeset`
+- Apply version/changelog updates: `pnpm version-packages`
+- Publish packages: `pnpm release`
+
+CI/CD:
+
+- `.github/workflows/release.yml` runs on `main` pushes
+- creates/updates a release PR when unpublished changesets exist
+- publishes when release commit lands (requires `NPM_TOKEN` secret)
