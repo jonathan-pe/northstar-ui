@@ -17,6 +17,14 @@ const storybookThemes = {
   },
 } as const
 
+function applyDocumentTheme(themeClassName: string) {
+  const root = document.documentElement
+  root.classList.remove('dark')
+  if (themeClassName) {
+    root.classList.add(themeClassName)
+  }
+}
+
 const preview: Preview = {
   initialGlobals: {
     backgrounds: {
@@ -48,6 +56,7 @@ const preview: Preview = {
         (context.globals as { backgrounds?: { value?: string } }).backgrounds?.value ?? 'light'
       const selectedTheme =
         storybookThemes[backgroundKey as keyof typeof storybookThemes] ?? storybookThemes.light
+      applyDocumentTheme(selectedTheme.className)
 
       const surfaceClass = cn(
         'min-h-screen w-full bg-background p-6 text-foreground',
