@@ -1,0 +1,23 @@
+/*
+ * Project-owned styling overrides.
+ *
+ * Keep `src/index.css` as the shadcn/base token source of truth.
+ * Put custom token or global CSS overrides here so shadcn updates can
+ * regenerate base files without losing our customizations.
+ *
+ * Import order matters:
+ * - `index.css` first
+ * - `styles/overrides.css` second
+ */
+
+/*
+ * Example token override pattern:
+ *
+ * :root {
+ *   --primary: oklch(...);
+ * }
+ *
+ * .dark {
+ *   --primary: oklch(...);
+ * }
+ */

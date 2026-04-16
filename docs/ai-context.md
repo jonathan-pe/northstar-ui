@@ -39,6 +39,10 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
 
 - `src/components/ui/*`
   - shadcn-generated component sources (upstream-aligned)
+- `src/index.css`
+  - base theme tokens / shadcn-aligned global styles (upstream-aligned)
+- `src/styles/overrides.css`
+  - project-owned CSS override layer loaded after `index.css`
 - `src/primitives/wrappers/*`
   - stable wrapper API layer (primary extension point)
 - `src/primitives.ts`
@@ -70,9 +74,13 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
 2. Do not directly modify `src/components/ui/*` for product/library customizations.
    - Treat those files as shadcn-owned generated sources that can be replaced by future updates.
    - Implement overrides, accessibility tweaks, and design customizations in `src/primitives/wrappers/*` (or composites when appropriate).
-3. Preserve wrapper API stability; treat wrapper exports as contract.
-4. Use semantic tokens, not raw color literals, for new theming work.
-5. Keep RTL/LTR parity and dark mode parity in stories.
+3. Keep CSS layering explicit:
+   - base/upstream: `src/index.css`
+   - custom overrides: `src/styles/overrides.css`
+   - ensure overrides are imported after base in both app and Storybook.
+4. Preserve wrapper API stability; treat wrapper exports as contract.
+5. Use semantic tokens, not raw color literals, for new theming work.
+6. Keep RTL/LTR parity and dark mode parity in stories.
 
 ## 6) Directionality and RTL
 
