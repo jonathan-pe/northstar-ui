@@ -19,19 +19,3 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const RTL: Story = {
-  globals: {
-    direction: 'rtl',
-  },
-}
-
-export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      <div className="dark bg-background text-foreground p-6">
-        <Story />
-      </div>
-    ),
-  ],
-}

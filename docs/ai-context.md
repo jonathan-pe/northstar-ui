@@ -67,7 +67,9 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
 1. Keep generated and customized code separated:
    - generated: `src/components/ui/*`
    - custom/stable: wrappers + composites
-2. Put custom behavior in wrappers/composites, not generated files.
+2. Do not directly modify `src/components/ui/*` for product/library customizations.
+   - Treat those files as shadcn-owned generated sources that can be replaced by future updates.
+   - Implement overrides, accessibility tweaks, and design customizations in `src/primitives/wrappers/*` (or composites when appropriate).
 3. Preserve wrapper API stability; treat wrapper exports as contract.
 4. Use semantic tokens, not raw color literals, for new theming work.
 5. Keep RTL/LTR parity and dark mode parity in stories.
