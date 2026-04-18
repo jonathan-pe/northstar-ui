@@ -42,10 +42,11 @@ For any component touching layout, overlay, or placement:
 
 ## Token governance
 
-- Add or evolve semantic tokens in `src/tokens/semantic.ts`
+- **Colors:** edit `src/index.css` and/or `src/styles/overrides.css` only. Run `pnpm generate:tokens` and commit `src/tokens/css-theme.generated.ts` (also runs before `pnpm build:lib`).
+- **Layout scales:** `space` and `radius` still live in `src/tokens/semantic.ts` until expressed as CSS variables.
 - Keep web mapping in `src/tokens/web-tailwind.ts`
 - Update `src/tokens/README.md` when token contracts change
-- `src/index.css` shadcn theme variables for `--background`, `--foreground`, `--primary`, etc. must stay aligned with the same color values in `semantic.ts` for overlapping keys; `tests/tokens/theme-parity.test.ts` enforces that parity in CI.
+- `tests/tokens/theme-parity.test.ts` ensures merged CSS matches the generated TS maps in CI.
 
 ## Visual regression (optional)
 

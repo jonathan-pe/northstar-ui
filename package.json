@@ -45,7 +45,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build:lib": "tsup",
+    "generate:tokens": "tsx scripts/generate-theme-tokens.ts",
+    "build:lib": "pnpm generate:tokens && tsup",
     "build:app": "tsc -b && vite build",
     "build": "pnpm build:lib && pnpm build:app",
     "lint": "eslint .",
@@ -111,6 +112,7 @@
     "storybook": "^10.3.5",
     "tailwindcss": "^4.2.2",
     "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.0",
     "vite": "^8.0.4",

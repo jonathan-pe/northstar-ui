@@ -47,4 +47,11 @@ export default defineConfig([globalIgnores(['dist']), {
       }],
     }],
   },
+}, {
+  files: ['scripts/**/*.ts'],
+  languageOptions: {
+    globals: {
+      ...globals.node,
+    },
+  },
 }, ...storybook.configs["flat/recommended"]])

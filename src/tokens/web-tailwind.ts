@@ -1,4 +1,4 @@
-import { semanticTokens } from '@/tokens/semantic'
+import { themeCssVars, type ThemeId } from './css-theme.generated'
 
 type FlatTokenMap = Record<string, string>
 
@@ -20,6 +20,7 @@ function flatten(
   return out
 }
 
+/** Flatten a nested token object into `--{prefix}-{a-b-c}` custom property names. */
 export function toCssCustomProperties(
   prefix: string,
   object: Record<string, unknown>,
@@ -32,11 +33,11 @@ export function toCssCustomProperties(
   return Object.fromEntries(entries)
 }
 
-export const lightThemeCssVars = toCssCustomProperties(
-  'ns',
-  semanticTokens.themes.light,
-)
-export const darkThemeCssVars = toCssCustomProperties(
-  'ns',
-  semanticTokens.themes.dark,
-)
+/** Shadcn-aligned maps for the default light/dark themes (same keys as `var(--background)`, etc.). */
+export const lightThemeCssVars = themeCssVars.light
+export const darkThemeCssVars = themeCssVars.dark
+
+/** Resolved CSS custom properties for any theme id discovered from CSS (see `discoverThemeContract`). */
+export function getThemeCssVars(id: ThemeId): (typeof themeCssVars)[ThemeId] {
+  return themeCssVars[id]
+}

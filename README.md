@@ -36,14 +36,15 @@ Use stable subpath contracts:
 ```ts
 import { Button, Input } from "northstar-ui/primitives"
 import { LoginCard, AppSidebar } from "northstar-ui/composites"
-import { semanticTokens } from "northstar-ui/tokens"
+import { themeCssVars, semanticTokens } from "northstar-ui/tokens"
 ```
 
 ## Theme + style expectations
 
 - Tailwind and shadcn utility classes are used by primitives/composites.
-- Semantic token source lives in `src/tokens/semantic.ts`.
-- Web mapping utilities live in `src/tokens/web-tailwind.ts`.
+- **Theme colors** are authored in `src/index.css` and `src/styles/overrides.css`. TypeScript mirrors are **generated** into `src/tokens/css-theme.generated.ts` via `pnpm generate:tokens` (runs before `pnpm build:lib`). Extra palettes use **`.theme-{name}`** blocks, which are discovered automatically (see `src/tokens/README.md`).
+- Layout scales (`space`, `radius`) live in `src/tokens/semantic.ts` until mirrored as CSS variables.
+- Web helpers live in `src/tokens/web-tailwind.ts`.
 - Dark mode styles are built-in and validated in Storybook stories.
 
 ## Available scripts
@@ -54,7 +55,8 @@ import { semanticTokens } from "northstar-ui/tokens"
 - `pnpm storybook` - run Storybook locally
 - `pnpm build-storybook` - build static Storybook
 - `pnpm chromatic` - upload Storybook to Chromatic (requires `CHROMATIC_PROJECT_TOKEN`; optional CI workflow in `.github/workflows/chromatic.yml`)
-- `pnpm test:unit` - run Vitest primitive/composite unit tests (includes semantic vs `index.css` theme parity)
+- `pnpm generate:tokens` - regenerate TS theme maps from CSS (`css-theme.generated.ts`)
+- `pnpm test:unit` - run Vitest primitive/composite unit tests (includes CSS vs generated token parity)
 - `pnpm test:storybook` - run Storybook interaction tests (includes RTL sanity stories)
 
 ## RTL

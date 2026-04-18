@@ -11,13 +11,10 @@
  */
 
 /*
- * Example token override pattern:
+ * Example: set a real oklch() value (not a placeholder), then run:
+ *   pnpm generate:tokens
  *
  * :root {
- *   --primary: oklch(...);
- * }
- *
- * .dark {
- *   --primary: oklch(...);
+ *   --primary: oklch(0.5 0.12 150);
  * }
  */

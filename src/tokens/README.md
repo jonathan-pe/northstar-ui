@@ -1,33 +1,48 @@
 # Tokens
 
-`northstar-ui` uses semantic-first tokens as the source of truth.
+## Source of truth
 
-## Files
+**Theme colors** are defined in CSS only:
 
-- `semantic.ts` - canonical semantic token model (`themes.light` and `themes.dark`)
-- `web-tailwind.ts` - web mapping helpers for CSS custom properties
+1. `src/index.css` — shadcn/Tailwind-aligned global styles  
+2. `src/styles/overrides.css` — project overrides (merged after `index.css`; later rules win)
 
-## Naming
+Run **`pnpm generate:tokens`** (also runs automatically before **`pnpm build:lib`**) to regenerate:
 
-Use semantic token keys (`color.bg.page`, `color.text.primary`, etc.) rather than raw palette names.
+- `src/tokens/css-theme.generated.ts` — `themeCssVars` with `--background`, `--primary`, etc.
+
+Do not edit `css-theme.generated.ts` by hand.
+
+## How themes are discovered (no JSON)
+
+The generator scans the merged CSS (same files as above) and builds theme maps **by convention**:
+
+| Theme id | CSS blocks merged into this theme |
+|----------|-----------------------------------|
+| `light` | `:root`, and `.theme-light` if present |
+| `dark` | `.dark`, and `.theme-dark` if present (missing vars inherit from resolved `light`, like the cascade) |
+| *custom* | Any other **`.theme-{name}`** block → theme id **`{name}`**, inherits from `light` |
+
+Examples:
+
+- `.theme-playful { ... }` → `themeCssVars.playful`
+- Use **only** `.theme-*` blocks for extra palettes so they are picked up; avoid unrelated classes like `.theme-sidebar` unless you intend a full alternate theme named `sidebar`.
+
+## TypeScript API
+
+- **`themeCssVars`** — merged values per discovered theme id, keyed like `var(--background)`.
+- **`ThemeId`** — union of keys on `themeCssVars`.
+- **`semanticTokens.themes`** — `{ cssVars }` per `ThemeId`, plus manual **`space`** / **`radius`** scales in `semantic.ts`.
+- **`lightThemeCssVars` / `darkThemeCssVars`** — shortcuts for the default shadcn themes.
+- **`getThemeCssVars(id)`** — lookup any discovered theme.
+- **`toCssCustomProperties(prefix, nestedObject)`** — flatten nested objects to `--{prefix}-…` for custom `--ns-*` maps.
 
 ## Versioning
 
-- Additive token keys: **minor**
-- Renamed/removed public token keys: **major**
-- Internal mapping fixes (without contract change): **patch**
+- Additive CSS variables / new `.theme-*` themes: **minor**
+- Renamed/removed public theme ids or keys: **major**
+- Regenerated output with no contract change: **patch**
 
-## Web usage
+## CI
 
-Use `toCssCustomProperties()` when producing CSS variable maps from semantic tokens.
-
-Example:
-
-```ts
-import { lightThemeCssVars } from '@/tokens/web-tailwind'
-```
-
-## CI alignment
-
-`tests/tokens/theme-parity.test.ts` checks that key `--background`, `--foreground`, `--primary`, and related variables in `src/index.css` match the same color strings in `semantic.ts`. If you change one side, update the other (or adjust the test mapping).
-
+`tests/tokens/theme-parity.test.ts` asserts that discovery + merge matches the committed `css-theme.generated.ts`. After editing CSS, run `pnpm generate:tokens` and commit the updated generated file.

@@ -3,69 +3,41 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-import { semanticTokens } from '@/tokens/semantic'
+import { themeCssVars, type ThemeId } from '@/tokens/css-theme.generated'
+import {
+  DEFAULT_THEME_CSS_PATHS,
+  discoverThemeContract,
+  mergeThemesFromContract,
+} from '../../scripts/parse-theme-css'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const indexCssPath = path.join(__dirname, '../../src/index.css')
+const root = path.join(__dirname, '../..')
 
-function parseCssVars(block: string): Map<string, string> {
-  const map = new Map<string, string>()
-  for (const match of block.matchAll(/--([\w-]+)\s*:\s*([^;]+);/g)) {
-    map.set(`--${match[1]}`, match[2].trim())
-  }
-  return map
-}
+describe('Theme tokens: generated TS matches merged CSS (discovered themes)', () => {
+  const sources = DEFAULT_THEME_CSS_PATHS.map((rel) =>
+    readFileSync(path.join(root, rel), 'utf8'),
+  )
+  const contract = discoverThemeContract(sources)
 
-function extractFirstBlock(css: string, selector: ':root' | '.dark'): string {
-  const pattern =
-    selector === ':root' ? /:root\s*\{([\s\S]*?)\}/ : /\.dark\s*\{([\s\S]*?)\}/
-  const m = css.match(pattern)
-  if (!m?.[1]) {
-    throw new Error(`Could not find ${selector} block in index.css`)
-  }
-  return m[1]
-}
+  it('themeCssVars matches parser output for every discovered theme', () => {
+    const resolved = mergeThemesFromContract(sources, contract)
 
-describe('Theme parity: semantic tokens vs src/index.css', () => {
-  const css = readFileSync(indexCssPath, 'utf8')
-  const lightVars = parseCssVars(extractFirstBlock(css, ':root'))
-  const darkVars = parseCssVars(extractFirstBlock(css, '.dark'))
+    for (const t of contract.themes) {
+      const fromParser = resolved[t.id]
+      const fromGenerated = themeCssVars[t.id as ThemeId]
 
-  const light: [string, string][] = [
-    ['--background', semanticTokens.themes.light.color.bg.page],
-    ['--foreground', semanticTokens.themes.light.color.text.primary],
-    ['--card', semanticTokens.themes.light.color.bg.surface],
-    ['--popover', semanticTokens.themes.light.color.bg.surface],
-    ['--primary', semanticTokens.themes.light.color.accent.primary],
-    ['--primary-foreground', semanticTokens.themes.light.color.accent.primaryForeground],
-    ['--secondary', semanticTokens.themes.light.color.accent.secondary],
-    ['--secondary-foreground', semanticTokens.themes.light.color.accent.secondaryForeground],
-    ['--muted-foreground', semanticTokens.themes.light.color.text.muted],
-    ['--border', semanticTokens.themes.light.color.border.default],
-  ]
-
-  const dark: [string, string][] = [
-    ['--background', semanticTokens.themes.dark.color.bg.page],
-    ['--foreground', semanticTokens.themes.dark.color.text.primary],
-    ['--card', semanticTokens.themes.dark.color.bg.surface],
-    ['--popover', semanticTokens.themes.dark.color.bg.surface],
-    ['--primary', semanticTokens.themes.dark.color.accent.primary],
-    ['--primary-foreground', semanticTokens.themes.dark.color.accent.primaryForeground],
-    ['--secondary', semanticTokens.themes.dark.color.accent.secondary],
-    ['--secondary-foreground', semanticTokens.themes.dark.color.accent.secondaryForeground],
-    ['--muted-foreground', semanticTokens.themes.dark.color.text.muted],
-    ['--border', semanticTokens.themes.dark.color.border.default],
-  ]
-
-  it('light :root CSS variables match semanticTokens.themes.light', () => {
-    for (const [name, expected] of light) {
-      expect(lightVars.get(name), `${name} missing in :root`).toBe(expected)
-    }
-  })
-
-  it('dark .dark CSS variables match semanticTokens.themes.dark', () => {
-    for (const [name, expected] of dark) {
-      expect(darkVars.get(name), `${name} missing in .dark`).toBe(expected)
+      for (const [key, value] of fromParser) {
+        expect(fromGenerated[key as keyof typeof fromGenerated], `${t.id} ${key}`).toBe(
+          value,
+        )
+      }
+      for (const key of Object.keys(fromGenerated) as Array<
+        keyof typeof fromGenerated
+      >) {
+        expect(fromParser.get(key), `${t.id} ${String(key)}`).toBe(
+          fromGenerated[key],
+        )
+      }
     }
   })
 })

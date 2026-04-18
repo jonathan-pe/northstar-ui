@@ -40,9 +40,9 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
 - `src/components/ui/*`
   - shadcn-generated component sources (upstream-aligned)
 - `src/index.css`
-  - base theme tokens / shadcn-aligned global styles (upstream-aligned)
+  - base shadcn/Tailwind global styles; **canonical `:root` theme custom properties** (upstream-aligned)
 - `src/styles/overrides.css`
-  - project-owned CSS override layer loaded after `index.css`
+  - project-owned CSS loaded after `index.css`; **override or add theme vars here** (merged into generated TS)
 - `src/primitives/wrappers/*`
   - stable wrapper API layer (primary extension point)
 - `src/primitives.ts`
@@ -51,10 +51,14 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
   - reusable higher-level components (`LoginCard`, `AppSidebar`)
 - `src/composites.ts`
   - composite export surface
+- `src/tokens/css-theme.generated.ts`
+  - generated TypeScript mirror (`pnpm generate:tokens`); do not hand-edit
 - `src/tokens/semantic.ts`
-  - token source of truth
+  - composes generated `themeCssVars` with manual `space` / `radius` scales
 - `src/tokens/web-tailwind.ts`
-  - token-to-CSS mapping for web
+  - helpers (`toCssCustomProperties`, shadcn-aligned CSS var exports)
+- `scripts/generate-theme-tokens.ts` + `scripts/parse-theme-css.ts`
+  - CSS → TS codegen; themes discovered from `:root`, `.dark`, and `.theme-*` blocks (see `src/tokens/README.md`)
 - `src/tokens.ts`
   - token export surface
 - `src/stories/primitives/*.stories.tsx`
@@ -62,7 +66,7 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
 - `src/stories/*.stories.tsx`
   - composites, sanity (e.g. RTL regression), and other top-level stories
 - `tests/**/*.test.tsx`
-  - unit tests (including `tests/tokens/theme-parity.test.ts` guarding CSS vs semantic tokens)
+  - unit tests (including `tests/tokens/theme-parity.test.ts` guarding CSS vs generated token maps)
 - `docs/rtl.md`
   - runtime RTL guidance
 - `docs/maintenance.md`
