@@ -36,4 +36,15 @@ export default defineConfig([globalIgnores(['dist']), {
       }],
     }],
   },
+}, {
+  files: ['tests/primitives/**/*.test.ts?(x)'],
+  rules: {
+    'no-restricted-imports': ['error', {
+      patterns: [{
+        group: ['@/components/ui/*'],
+        message:
+          'Import primitives from "@/primitives" in primitive tests so wrapper-level customizations are always exercised.',
+      }],
+    }],
+  },
 }, ...storybook.configs["flat/recommended"]])
