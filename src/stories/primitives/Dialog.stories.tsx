@@ -20,6 +20,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    northstarCanvasMinHeight: '60vh',
     docs: {
       description: {
         component:

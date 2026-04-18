@@ -59,14 +59,17 @@ const preview: Preview = {
         storybookThemes[backgroundKey as keyof typeof storybookThemes] ?? storybookThemes.light
       applyDocumentTheme(selectedTheme.className)
 
+      const canvasMinHeight =
+        (context.parameters as { northstarCanvasMinHeight?: string }).northstarCanvasMinHeight ??
+        'auto'
       const surfaceClass = cn(
-        'min-h-screen w-full bg-background p-6 text-foreground',
+        'w-full bg-background p-6 text-foreground',
         selectedTheme.className,
       )
 
       return createElement(
         'div',
-        { className: surfaceClass },
+        { className: surfaceClass, style: { minHeight: canvasMinHeight } },
         createElement(
           DirectionProvider,
           { direction },
