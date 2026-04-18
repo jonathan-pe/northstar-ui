@@ -20,6 +20,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Dialog primitives from `@/primitives`. Provide `DialogTitle`; use `DialogDescription` for helper copy or visually hidden text for screen readers.',
+      },
+    },
   },
 } satisfies Meta
 

@@ -53,7 +53,8 @@ import { semanticTokens } from "northstar-ui/tokens"
 - `pnpm lint` - run ESLint
 - `pnpm storybook` - run Storybook locally
 - `pnpm build-storybook` - build static Storybook
-- `pnpm test:unit` - run Vitest primitive/composite unit tests
+- `pnpm chromatic` - upload Storybook to Chromatic (requires `CHROMATIC_PROJECT_TOKEN`; optional CI workflow in `.github/workflows/chromatic.yml`)
+- `pnpm test:unit` - run Vitest primitive/composite unit tests (includes semantic vs `index.css` theme parity)
 - `pnpm test:storybook` - run Storybook interaction tests (includes RTL sanity stories)
 
 ## RTL

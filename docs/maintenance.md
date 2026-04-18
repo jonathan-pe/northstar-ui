@@ -45,3 +45,14 @@ For any component touching layout, overlay, or placement:
 - Add or evolve semantic tokens in `src/tokens/semantic.ts`
 - Keep web mapping in `src/tokens/web-tailwind.ts`
 - Update `src/tokens/README.md` when token contracts change
+- `src/index.css` shadcn theme variables for `--background`, `--foreground`, `--primary`, etc. must stay aligned with the same color values in `semantic.ts` for overlapping keys; `tests/tokens/theme-parity.test.ts` enforces that parity in CI.
+
+## Visual regression (optional)
+
+For screenshot baselines and cross-browser UI review, [Chromatic](https://www.chromatic.com/) integrates with Storybook.
+
+1. Create a Chromatic project and copy the project token.
+2. Add `CHROMATIC_PROJECT_TOKEN` as a repository secret (and optionally run the GitHub Action workflow if present).
+3. Locally: `pnpm chromatic` (runs `build-storybook` and uploads the build).
+
+Until Chromatic is configured, rely on `pnpm test:storybook` (a11y + interaction tests) and the theme parity test for token drift.

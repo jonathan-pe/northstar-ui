@@ -27,3 +27,7 @@ Example:
 import { lightThemeCssVars } from '@/tokens/web-tailwind'
 ```
 
+## CI alignment
+
+`tests/tokens/theme-parity.test.ts` checks that key `--background`, `--foreground`, `--primary`, and related variables in `src/index.css` match the same color strings in `semantic.ts`. If you change one side, update the other (or adjust the test mapping).
+

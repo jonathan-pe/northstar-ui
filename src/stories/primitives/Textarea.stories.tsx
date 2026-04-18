@@ -11,6 +11,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Wrapper around the shadcn `Textarea` from `@/primitives`. Pair with labels and validation messaging as needed.',
+      },
+    },
   },
   argTypes: {
     disabled: { control: 'boolean' },

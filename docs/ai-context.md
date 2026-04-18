@@ -57,10 +57,12 @@ Exports point to built artifacts in `dist/*` (ESM + CJS + `.d.ts`).
   - token-to-CSS mapping for web
 - `src/tokens.ts`
   - token export surface
+- `src/stories/primitives/*.stories.tsx`
+  - per-primitive Storybook docs and interaction tests
 - `src/stories/*.stories.tsx`
-  - Storybook stories, including RTL/dark coverage
+  - composites, sanity (e.g. RTL regression), and other top-level stories
 - `tests/**/*.test.tsx`
-  - unit tests
+  - unit tests (including `tests/tokens/theme-parity.test.ts` guarding CSS vs semantic tokens)
 - `docs/rtl.md`
   - runtime RTL guidance
 - `docs/maintenance.md`
@@ -105,6 +107,7 @@ Notes:
 - Storybook a11y mode is strict (`test: 'error'`).
 - Storybook tests rely on Playwright browser binaries; install with:
   - `pnpm exec playwright install`
+- Vitest + jsdom: Radix primitives use pointer capture APIs that jsdom does not ship; stubs live in `src/test/setup.ts` (do not remove without replacing with another fix).
 
 ## 8) Build and Release Flow
 
@@ -121,6 +124,8 @@ Changesets:
 GitHub workflows:
 - CI: `.github/workflows/ci.yml`
   - lint, unit, build, storybook tests
+- Chromatic (optional): `.github/workflows/chromatic.yml`
+  - runs only when `CHROMATIC_PROJECT_TOKEN` is configured
 - Release: `.github/workflows/release.yml`
   - changesets/action creates release PRs or publishes on main
   - requires `NPM_TOKEN` secret
@@ -142,9 +147,12 @@ Composites:
 - AppSidebar
 
 Storybook coverage:
-- primitive batch stories
-- composite stories
-- dedicated RTL sanity story with interactions
+- one story module per primitive under `src/stories/primitives/` (variants, states, interactions)
+- composite stories (`LoginCard`, `AppSidebar`)
+- `Sanity/RTL Regression` story (`src/stories/RtlSanity.stories.tsx`) with LTR/RTL interaction tests
+
+Visual regression (optional):
+- Chromatic can be wired via `pnpm chromatic` when `CHROMATIC_PROJECT_TOKEN` is configured; see `docs/maintenance.md`.
 
 ## 11) Common Pitfalls
 

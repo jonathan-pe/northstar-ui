@@ -9,7 +9,8 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-onboarding",
-    "@storybook/addon-mcp"
+    "@storybook/addon-mcp",
+    "@chromatic-com/storybook"
   ],
   "framework": "@storybook/react-vite"
 };

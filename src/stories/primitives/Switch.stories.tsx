@@ -11,6 +11,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Re-exported shadcn `Switch` from `@/primitives`. Use `aria-label` or an associated label for the control.',
+      },
+    },
   },
   argTypes: {
     size: { control: 'select', options: ['default', 'sm'] },

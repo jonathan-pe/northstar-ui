@@ -10,6 +10,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Sonner-based `Toaster` and `toast` API from `@/primitives`. Render `<Toaster />` once near the app root; stories here include a local decorator for demos.',
+      },
+    },
   },
   decorators: [
     (Story) => (

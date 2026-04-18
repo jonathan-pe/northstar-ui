@@ -11,6 +11,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Wrapper around the shadcn `Input` from `@/primitives`. Use visible labels or `aria-label` for accessibility.',
+      },
+    },
   },
   argTypes: {
     type: {

@@ -12,6 +12,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Wrapper around the shadcn `Checkbox` from `@/primitives`. Always expose an accessible name (label or `aria-label`).',
+      },
+    },
   },
   argTypes: {
     disabled: { control: 'boolean' },

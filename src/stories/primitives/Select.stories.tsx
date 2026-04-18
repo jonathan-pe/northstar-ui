@@ -19,6 +19,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Select primitives from `@/primitives`. `SelectContent` is wrapped for translucent panel styling; use `aria-label` on the trigger when there is no visible label.',
+      },
+    },
   },
 } satisfies Meta
 

@@ -16,6 +16,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Tooltip primitives from `@/primitives`. Wrap the tree in `TooltipProvider`; prefer triggers with an accessible name (e.g. icon buttons with `aria-label`).',
+      },
+    },
   },
   decorators: [
     (Story) => (
