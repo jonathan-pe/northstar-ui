@@ -4,7 +4,6 @@ import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/prim
 
 const meta = {
   title: 'Primitives/InputOTP',
-  component: InputOTP,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -15,7 +14,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof InputOTP>
+} satisfies Meta
 
 export default meta
 type Story = StoryObj<typeof meta>
