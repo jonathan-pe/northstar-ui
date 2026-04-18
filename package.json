@@ -1,7 +1,7 @@
 {
   "name": "northstar-ui",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Reusable React design library built on shadcn and Tailwind.",
   "license": "MIT",
   "type": "module",
