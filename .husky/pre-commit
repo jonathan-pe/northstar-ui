@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+set -eu
+
+# Keep paths in sync with scripts/parse-theme-css.ts (DEFAULT_THEME_CSS_PATHS).
+staged_files=$(git diff --cached --name-only --diff-filter=ACMRT)
+run=
+
+for f in $staged_files; do
+  case "$f" in
+    src/index.css|src/styles/overrides.css)
+      run=1
+      break
+      ;;
+  esac
+done
+
+if [ -n "$run" ]; then
+  pnpm generate:tokens
+  git add src/tokens/css-theme.generated.ts
+fi
