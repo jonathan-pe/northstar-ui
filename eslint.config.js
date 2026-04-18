@@ -25,4 +25,15 @@ export default defineConfig([globalIgnores(['dist']), {
   rules: {
     'react-refresh/only-export-components': 'off',
   },
+}, {
+  files: ['src/stories/**/*.stories.tsx'],
+  rules: {
+    'no-restricted-imports': ['error', {
+      patterns: [{
+        group: ['@/components/ui/*'],
+        message:
+          'Import primitives from "@/primitives" in stories so wrapper-level customizations are always exercised.',
+      }],
+    }],
+  },
 }, ...storybook.configs["flat/recommended"]])
