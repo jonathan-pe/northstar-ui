@@ -26,7 +26,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           variant === 'destructive' && primitiveDestructiveButton,
           variant === 'link' && primitiveLinkButtonDark,
-          'cursor-pointer',
+          'cursor-pointer', // shadcn buttons don't have this for some reason but i like it
           className,
         )}
         {...props}
