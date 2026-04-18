@@ -2,34 +2,28 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 import { InfoIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import {
+  Button,
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/ui/tabs'
-import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/primitives'
 
 const meta = {
   title: 'Sanity/RTL Regression',
