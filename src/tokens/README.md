@@ -7,7 +7,7 @@
 1. `src/index.css` — shadcn/Tailwind-aligned global styles
 2. `src/styles/overrides.css` — project overrides (merged after `index.css`; later rules win)
 
-Run `**pnpm generate:tokens`** (also runs automatically before `**pnpm build:lib**`) to regenerate:
+Run `**pnpm generate:tokens`** (also runs automatically before `**pnpm build:lib`**) to regenerate:
 
 - `src/tokens/css-theme.generated.ts` — `themeCssVars` with `--background`, `--primary`, etc.
 
@@ -22,7 +22,7 @@ The generator scans the merged CSS (same files as above) and builds theme maps *
 | -------- | ---------------------------------------------------------------------------------------------------- |
 | `light`  | `:root`, and `.theme-light` if present                                                               |
 | `dark`   | `.dark`, and `.theme-dark` if present (missing vars inherit from resolved `light`, like the cascade) |
-| *custom* | Any other `**.theme-{name}`** block → theme id `**{name}**`, inherits from `light`                   |
+| *custom* | Any other `**.theme-{name}`** block → theme id `**{name}`**, inherits from `light`                   |
 
 
 Examples:
@@ -33,7 +33,7 @@ Examples:
 ## TypeScript API
 
 - `**themeCssVars`** — merged values per discovered theme id, keyed like `var(--background)`.
-- `**ThemeId**` — union of keys on `themeCssVars`.
+- `**ThemeId`** — union of keys on `themeCssVars`.
 - `**semanticTokens.themes**` — `{ cssVars }` per `ThemeId`, plus manual `**space**` / `**radius**` scales in `semantic.ts`.
 - `**lightThemeCssVars` / `darkThemeCssVars**` — shortcuts for the default shadcn themes.
 - `**getThemeCssVars(id)**` — lookup any discovered theme.
