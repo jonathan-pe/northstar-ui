@@ -1,3 +1,7 @@
+/**
+ * Northstar **Sheet** — import from `northstar-ui/primitives`.
+ * Edge slide-over panels (drawers); catalog id `sheet`.
+ */
 import {
   Sheet,
   SheetClose,

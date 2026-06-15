@@ -1,0 +1,653 @@
+import type { CatalogPrimitiveEntry } from './types.ts'
+
+export const PRIMITIVE_CATALOG_ENTRIES: readonly CatalogPrimitiveEntry[] = [
+  {
+    "id": "alert-dialog",
+    "title": "Alert Dialog",
+    "category": "overlay",
+    "source": "src/primitives/wrappers/alert-dialog.tsx",
+    "story": "src/stories/primitives/AlertDialog.stories.tsx",
+    "exports": [
+      "AlertDialog",
+      "AlertDialogTrigger",
+      "AlertDialogContent",
+      "AlertDialogHeader",
+      "AlertDialogFooter",
+      "AlertDialogTitle",
+      "AlertDialogDescription",
+      "AlertDialogAction",
+      "AlertDialogCancel",
+      "AlertDialogMedia",
+      "AlertDialogOverlay",
+      "AlertDialogPortal"
+    ],
+    "importExample": "import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction, AlertDialogCancel } from \"northstar-ui/primitives\"",
+    "summary": "Modal confirmation pattern built on Radix Alert Dialog; use for destructive or irreversible actions.",
+    "whenToUse": [
+      "Confirm deletes, payment, or navigation away from dirty state.",
+      "Prefer over Dialog when the flow must block until the user chooses."
+    ],
+    "composition": "Wrap trigger content in AlertDialogTrigger; place layout in AlertDialogContent; wire primary action to AlertDialogAction and dismiss to AlertDialogCancel.",
+    "tags": [
+      "modal",
+      "confirmation",
+      "a11y",
+      "radix"
+    ]
+  },
+  {
+    "id": "avatar",
+    "title": "Avatar",
+    "category": "display",
+    "source": "src/primitives/wrappers/avatar.tsx",
+    "story": "src/stories/primitives/Avatar.stories.tsx",
+    "exports": [
+      "Avatar",
+      "AvatarImage",
+      "AvatarFallback",
+      "AvatarBadge",
+      "AvatarGroup",
+      "AvatarGroupCount"
+    ],
+    "importExample": "import { Avatar, AvatarImage, AvatarFallback } from \"northstar-ui/primitives\"",
+    "summary": "User or entity image with fallback initials and optional badge/group affordances.",
+    "whenToUse": [
+      "Represent users in lists, headers, comments, and menus."
+    ],
+    "composition": "Provide AvatarImage with src/alt; use AvatarFallback for initials or icon when the image fails.",
+    "tags": [
+      "image",
+      "profile"
+    ]
+  },
+  {
+    "id": "badge",
+    "title": "Badge",
+    "category": "display",
+    "source": "src/primitives/wrappers/badge.tsx",
+    "story": "src/stories/primitives/Badge.stories.tsx",
+    "exports": [
+      "Badge",
+      "badgeVariants"
+    ],
+    "importExample": "import { Badge } from \"northstar-ui/primitives\"",
+    "summary": "Small status or label chip with variants for emphasis.",
+    "whenToUse": [
+      "Counts, status (beta, new), tags on list rows, inline metadata."
+    ],
+    "composition": "Use badgeVariants for class-only reuse; Badge wraps children text or icons.",
+    "tags": [
+      "label",
+      "status"
+    ]
+  },
+  {
+    "id": "button",
+    "title": "Button",
+    "category": "control",
+    "source": "src/primitives/wrappers/button.tsx",
+    "story": "src/stories/primitives/Button.stories.tsx",
+    "exports": [
+      "Button",
+      "buttonVariants"
+    ],
+    "importExample": "import { Button } from \"northstar-ui/primitives\"",
+    "summary": "Primary clickable control; wraps shadcn Button with Northstar destructive/link contrast tweaks and pointer cursor.",
+    "whenToUse": [
+      "Form submit, dialogs, toolbars, list row actions."
+    ],
+    "composition": "Pass variant and size per design system; combine with icons from lucide-react as children.",
+    "tags": [
+      "action",
+      "form",
+      "cta"
+    ]
+  },
+  {
+    "id": "card",
+    "title": "Card",
+    "category": "layout",
+    "source": "src/primitives/wrappers/card.tsx",
+    "story": "src/stories/primitives/Card.stories.tsx",
+    "exports": [
+      "Card",
+      "CardHeader",
+      "CardTitle",
+      "CardDescription",
+      "CardAction",
+      "CardContent",
+      "CardFooter"
+    ],
+    "importExample": "import { Card, CardHeader, CardTitle, CardContent } from \"northstar-ui/primitives\"",
+    "summary": "Grouped surface for dashboard tiles, settings sections, and preview panels.",
+    "whenToUse": [
+      "Cluster related content with a clear title and optional footer actions."
+    ],
+    "composition": "CardHeader + CardTitle (+ CardDescription); optional CardAction; body in CardContent; CardFooter for buttons.",
+    "tags": [
+      "container",
+      "panel"
+    ]
+  },
+  {
+    "id": "checkbox",
+    "title": "Checkbox",
+    "category": "control",
+    "source": "src/primitives/wrappers/checkbox.tsx",
+    "story": "src/stories/primitives/Checkbox.stories.tsx",
+    "exports": [
+      "Checkbox"
+    ],
+    "importExample": "import { Checkbox } from \"northstar-ui/primitives\"",
+    "summary": "Binary toggle with Radix checkbox semantics and keyboard support.",
+    "whenToUse": [
+      "Multi-select lists, settings toggles that are not instant actions (use Switch for on/off settings when appropriate)."
+    ],
+    "composition": "Pair with Label; use in controlled mode with checked/onCheckedChange.",
+    "tags": [
+      "input",
+      "selection",
+      "a11y"
+    ]
+  },
+  {
+    "id": "dialog",
+    "title": "Dialog",
+    "category": "overlay",
+    "source": "src/primitives/wrappers/dialog.tsx",
+    "story": "src/stories/primitives/Dialog.stories.tsx",
+    "exports": [
+      "Dialog",
+      "DialogTrigger",
+      "DialogContent",
+      "DialogHeader",
+      "DialogFooter",
+      "DialogTitle",
+      "DialogDescription",
+      "DialogClose",
+      "DialogOverlay",
+      "DialogPortal"
+    ],
+    "importExample": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from \"northstar-ui/primitives\"",
+    "summary": "General-purpose modal for forms, detail views, and workflows that are not strictly confirmations.",
+    "whenToUse": [
+      "Rich modal content, multi-field forms, secondary flows."
+    ],
+    "composition": "DialogTrigger opens; DialogContent contains header/body/footer subcomponents.",
+    "tags": [
+      "modal",
+      "overlay",
+      "radix"
+    ]
+  },
+  {
+    "id": "direction",
+    "title": "Direction (RTL/LTR)",
+    "category": "provider",
+    "source": "src/components/ui/direction.tsx",
+    "story": "src/stories/RtlSanity.stories.tsx",
+    "exports": [
+      "DirectionProvider",
+      "useDirection"
+    ],
+    "importExample": "import { DirectionProvider, useDirection } from \"northstar-ui/primitives\"",
+    "summary": "Sets document/dir context for logical CSS and Radix behavior across the tree.",
+    "whenToUse": [
+      "Any app that must support RTL scripts or user-driven direction switching."
+    ],
+    "composition": "Wrap the app shell; also set html lang/dir in the host app (see docs/rtl.md).",
+    "tags": [
+      "rtl",
+      "i18n",
+      "provider"
+    ]
+  },
+  {
+    "id": "dropdown-menu",
+    "title": "Dropdown Menu",
+    "category": "navigation",
+    "source": "src/primitives/wrappers/dropdown-menu.tsx",
+    "story": "src/stories/primitives/DropdownMenu.stories.tsx",
+    "exports": [
+      "DropdownMenu",
+      "DropdownMenuTrigger",
+      "DropdownMenuContent",
+      "DropdownMenuItem",
+      "DropdownMenuCheckboxItem",
+      "DropdownMenuRadioGroup",
+      "DropdownMenuRadioItem",
+      "DropdownMenuLabel",
+      "DropdownMenuSeparator",
+      "DropdownMenuShortcut",
+      "DropdownMenuSub",
+      "DropdownMenuSubContent",
+      "DropdownMenuSubTrigger",
+      "DropdownMenuGroup",
+      "DropdownMenuPortal"
+    ],
+    "importExample": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from \"northstar-ui/primitives\"",
+    "summary": "Contextual command menu for actions, toggles, and nested submenus.",
+    "whenToUse": [
+      "Row actions, kebab menus, compact command surfaces."
+    ],
+    "composition": "Trigger wraps the activator; place items inside Content; use Separator and Label for structure.",
+    "tags": [
+      "menu",
+      "popover",
+      "actions"
+    ]
+  },
+  {
+    "id": "form",
+    "title": "Form (react-hook-form)",
+    "category": "control",
+    "source": "src/primitives/wrappers/form.tsx",
+    "story": "src/stories/primitives/Form.stories.tsx",
+    "exports": [
+      "Form",
+      "FormField",
+      "FormItem",
+      "FormLabel",
+      "FormControl",
+      "FormDescription",
+      "FormMessage",
+      "useFormField"
+    ],
+    "importExample": "import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from \"northstar-ui/primitives\"",
+    "summary": "Integrates react-hook-form with accessible field layout and validation messaging.",
+    "whenToUse": [
+      "Complex forms with schema validation and error display."
+    ],
+    "composition": "Form wraps RHF FormProvider; FormField renders per-field controllers with FormItem structure.",
+    "tags": [
+      "form",
+      "validation",
+      "rhf"
+    ]
+  },
+  {
+    "id": "input",
+    "title": "Input",
+    "category": "control",
+    "source": "src/primitives/wrappers/input.tsx",
+    "story": "src/stories/primitives/Input.stories.tsx",
+    "exports": [
+      "Input"
+    ],
+    "importExample": "import { Input } from \"northstar-ui/primitives\"",
+    "summary": "Single-line text field styled for the Northstar theme.",
+    "whenToUse": [
+      "Short text, search fields, compact inline edits."
+    ],
+    "composition": "Pair with Label; set type for email/password/url as needed.",
+    "tags": [
+      "text",
+      "field"
+    ]
+  },
+  {
+    "id": "input-otp",
+    "title": "Input OTP",
+    "category": "control",
+    "source": "src/primitives/wrappers/input-otp.tsx",
+    "story": "src/stories/primitives/InputOTP.stories.tsx",
+    "exports": [
+      "InputOTP",
+      "InputOTPGroup",
+      "InputOTPSlot",
+      "InputOTPSeparator"
+    ],
+    "importExample": "import { InputOTP, InputOTPGroup, InputOTPSlot } from \"northstar-ui/primitives\"",
+    "summary": "One-time code entry with grouped slots for verification flows.",
+    "whenToUse": [
+      "MFA, email/SMS codes, invite redemption codes."
+    ],
+    "composition": "Render slots inside InputOTPGroup; control value/onChange at InputOTP root.",
+    "tags": [
+      "otp",
+      "mfa",
+      "verification"
+    ]
+  },
+  {
+    "id": "label",
+    "title": "Label",
+    "category": "control",
+    "source": "src/primitives/wrappers/label.tsx",
+    "story": "src/stories/primitives/Label.stories.tsx",
+    "exports": [
+      "Label"
+    ],
+    "importExample": "import { Label } from \"northstar-ui/primitives\"",
+    "summary": "Accessible label primitive aligned with Radix Label.",
+    "whenToUse": [
+      "Associate text with Input, Checkbox, Switch, or custom controls."
+    ],
+    "composition": "Use htmlFor matching control id or wrap the control.",
+    "tags": [
+      "a11y",
+      "form"
+    ]
+  },
+  {
+    "id": "progress",
+    "title": "Progress",
+    "category": "feedback",
+    "source": "src/primitives/wrappers/progress.tsx",
+    "story": "src/stories/primitives/Progress.stories.tsx",
+    "exports": [
+      "Progress"
+    ],
+    "importExample": "import { Progress } from \"northstar-ui/primitives\"",
+    "summary": "Determinate or indeterminate progress indicator.",
+    "whenToUse": [
+      "Uploads, multi-step flows, loading bars with known progress."
+    ],
+    "composition": "Pass value 0-100 for determinate mode.",
+    "tags": [
+      "loading",
+      "meter"
+    ]
+  },
+  {
+    "id": "select",
+    "title": "Select",
+    "category": "control",
+    "source": "src/primitives/wrappers/select.tsx",
+    "story": "src/stories/primitives/Select.stories.tsx",
+    "exports": [
+      "Select",
+      "SelectTrigger",
+      "SelectValue",
+      "SelectContent",
+      "SelectItem",
+      "SelectGroup",
+      "SelectLabel",
+      "SelectSeparator",
+      "SelectScrollUpButton",
+      "SelectScrollDownButton"
+    ],
+    "importExample": "import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from \"northstar-ui/primitives\"",
+    "summary": "Styled select menu for choosing one option from a list.",
+    "whenToUse": [
+      "When space is limited and native select styling is insufficient."
+    ],
+    "composition": "SelectTrigger shows SelectValue; list options as SelectItem inside SelectContent.",
+    "tags": [
+      "dropdown",
+      "form",
+      "radix"
+    ]
+  },
+  {
+    "id": "separator",
+    "title": "Separator",
+    "category": "layout",
+    "source": "src/primitives/wrappers/separator.tsx",
+    "story": "src/stories/primitives/Separator.stories.tsx",
+    "exports": [
+      "Separator"
+    ],
+    "importExample": "import { Separator } from \"northstar-ui/primitives\"",
+    "summary": "Visual divider for horizontal or vertical layout regions.",
+    "whenToUse": [
+      "Split toolbars, menus, and stacked sections."
+    ],
+    "composition": "Set orientation prop; use decorative role where appropriate.",
+    "tags": [
+      "divider",
+      "layout"
+    ]
+  },
+  {
+    "id": "sheet",
+    "title": "Sheet",
+    "category": "overlay",
+    "source": "src/primitives/wrappers/sheet.tsx",
+    "story": "src/stories/primitives/Sheet.stories.tsx",
+    "exports": [
+      "Sheet",
+      "SheetTrigger",
+      "SheetContent",
+      "SheetHeader",
+      "SheetFooter",
+      "SheetTitle",
+      "SheetDescription",
+      "SheetClose"
+    ],
+    "importExample": "import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from \"northstar-ui/primitives\"",
+    "summary": "Slide-in panel (drawer) from screen edges for secondary navigation or filters.",
+    "whenToUse": [
+      "Mobile-first navigation, filter panels, auxiliary detail."
+    ],
+    "composition": "SheetTrigger opens; SheetContent holds header/footer and body.",
+    "tags": [
+      "drawer",
+      "overlay",
+      "responsive"
+    ]
+  },
+  {
+    "id": "sidebar",
+    "title": "Sidebar",
+    "category": "layout",
+    "source": "src/primitives/wrappers/sidebar.tsx",
+    "story": "src/stories/primitives/Sidebar.stories.tsx",
+    "exports": [
+      "SidebarProvider",
+      "Sidebar",
+      "SidebarInset",
+      "SidebarTrigger",
+      "SidebarRail",
+      "SidebarHeader",
+      "SidebarFooter",
+      "SidebarContent",
+      "SidebarGroup",
+      "SidebarGroupLabel",
+      "SidebarGroupAction",
+      "SidebarGroupContent",
+      "SidebarMenu",
+      "SidebarMenuItem",
+      "SidebarMenuButton",
+      "SidebarMenuAction",
+      "SidebarMenuBadge",
+      "SidebarMenuSkeleton",
+      "SidebarMenuSub",
+      "SidebarMenuSubItem",
+      "SidebarMenuSubButton",
+      "SidebarInput",
+      "SidebarSeparator",
+      "useSidebar"
+    ],
+    "importExample": "import { SidebarProvider, Sidebar, SidebarInset, SidebarTrigger, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from \"northstar-ui/primitives\"",
+    "summary": "Application sidebar shell with collapsible behavior and keyboard-friendly menu structure.",
+    "whenToUse": [
+      "App chrome navigation, nested menus, collapsible rail layouts."
+    ],
+    "composition": "Wrap with SidebarProvider; place navigation inside Sidebar; main content in SidebarInset.",
+    "tags": [
+      "navigation",
+      "app-shell",
+      "layout"
+    ]
+  },
+  {
+    "id": "skeleton",
+    "title": "Skeleton",
+    "category": "feedback",
+    "source": "src/primitives/wrappers/skeleton.tsx",
+    "story": "src/stories/primitives/Skeleton.stories.tsx",
+    "exports": [
+      "Skeleton"
+    ],
+    "importExample": "import { Skeleton } from \"northstar-ui/primitives\"",
+    "summary": "Placeholder shimmer for loading states.",
+    "whenToUse": [
+      "List row placeholders, card loading, text block placeholders."
+    ],
+    "composition": "Tune height/width with className; nest for composite skeletons.",
+    "tags": [
+      "loading",
+      "placeholder"
+    ]
+  },
+  {
+    "id": "switch",
+    "title": "Switch",
+    "category": "control",
+    "source": "src/primitives/wrappers/switch.tsx",
+    "story": "src/stories/primitives/Switch.stories.tsx",
+    "exports": [
+      "Switch"
+    ],
+    "importExample": "import { Switch } from \"northstar-ui/primitives\"",
+    "summary": "Binary on/off control optimized for immediate settings changes.",
+    "whenToUse": [
+      "Feature toggles, dark mode switches (with appropriate labeling)."
+    ],
+    "composition": "Always pair with Label; use checked/onCheckedChange for controlled state.",
+    "tags": [
+      "toggle",
+      "settings",
+      "a11y"
+    ]
+  },
+  {
+    "id": "table",
+    "title": "Table",
+    "category": "data",
+    "source": "src/primitives/wrappers/table.tsx",
+    "story": "src/stories/primitives/Table.stories.tsx",
+    "exports": [
+      "Table",
+      "TableHeader",
+      "TableBody",
+      "TableFooter",
+      "TableRow",
+      "TableHead",
+      "TableCell",
+      "TableCaption"
+    ],
+    "importExample": "import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from \"northstar-ui/primitives\"",
+    "summary": "Semantic HTML table primitives with themed borders and spacing.",
+    "whenToUse": [
+      "Tabular data, admin lists, comparison matrices."
+    ],
+    "composition": "Use TableHeader/Body/Footer; scope headers with TableHead.",
+    "tags": [
+      "grid",
+      "data"
+    ]
+  },
+  {
+    "id": "tabs",
+    "title": "Tabs",
+    "category": "navigation",
+    "source": "src/primitives/wrappers/tabs.tsx",
+    "story": "src/stories/primitives/Tabs.stories.tsx",
+    "exports": [
+      "Tabs",
+      "TabsList",
+      "TabsTrigger",
+      "TabsContent",
+      "tabsListVariants"
+    ],
+    "importExample": "import { Tabs, TabsList, TabsTrigger, TabsContent } from \"northstar-ui/primitives\"",
+    "summary": "Tabbed interface for switching related views without navigation.",
+    "whenToUse": [
+      "Settings sections, dashboards with sibling views."
+    ],
+    "composition": "TabsList contains TabsTrigger elements; TabsContent matches value props.",
+    "tags": [
+      "tabs",
+      "radix"
+    ]
+  },
+  {
+    "id": "textarea",
+    "title": "Textarea",
+    "category": "control",
+    "source": "src/primitives/wrappers/textarea.tsx",
+    "story": "src/stories/primitives/Textarea.stories.tsx",
+    "exports": [
+      "Textarea"
+    ],
+    "importExample": "import { Textarea } from \"northstar-ui/primitives\"",
+    "summary": "Multi-line text input for descriptions, comments, and long-form fields.",
+    "whenToUse": [
+      "Notes, message composition, JSON editors (with appropriate validation)."
+    ],
+    "composition": "Pair with Label; control value/onChange for controlled usage.",
+    "tags": [
+      "text",
+      "form"
+    ]
+  },
+  {
+    "id": "toast",
+    "title": "Toast (Sonner)",
+    "category": "feedback",
+    "source": "src/primitives/wrappers/toast.tsx",
+    "story": "src/stories/primitives/Toast.stories.tsx",
+    "exports": [
+      "Toaster",
+      "toast"
+    ],
+    "importExample": "import { Toaster, toast } from \"northstar-ui/primitives\"",
+    "summary": "Global toast notifications via Sonner; mount Toaster once at app root.",
+    "whenToUse": [
+      "Transient success/error/info messages after actions."
+    ],
+    "composition": "Render Toaster in the shell; call toast() from event handlers.",
+    "tags": [
+      "notification",
+      "sonner",
+      "feedback"
+    ]
+  },
+  {
+    "id": "toggle",
+    "title": "Toggle",
+    "category": "control",
+    "source": "src/primitives/wrappers/toggle.tsx",
+    "story": "src/stories/primitives/Toggle.stories.tsx",
+    "exports": [
+      "Toggle",
+      "toggleVariants"
+    ],
+    "importExample": "import { Toggle } from \"northstar-ui/primitives\"",
+    "summary": "Two-state button for toolbar modes (bold/italic) or view toggles.",
+    "whenToUse": [
+      "Icon-only stateful controls where Switch is not the right metaphor."
+    ],
+    "composition": "Use pressed/onPressedChange; style via toggleVariants when needed.",
+    "tags": [
+      "toolbar",
+      "state"
+    ]
+  },
+  {
+    "id": "tooltip",
+    "title": "Tooltip",
+    "category": "overlay",
+    "source": "src/primitives/wrappers/tooltip.tsx",
+    "story": "src/stories/primitives/Tooltip.stories.tsx",
+    "exports": [
+      "TooltipProvider",
+      "Tooltip",
+      "TooltipTrigger",
+      "TooltipContent"
+    ],
+    "importExample": "import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from \"northstar-ui/primitives\"",
+    "summary": "Hover/focus tooltips for supplementary information.",
+    "whenToUse": [
+      "Icon-only buttons, truncated labels, shortcut hints."
+    ],
+    "composition": "Wrap subtree with TooltipProvider once; TooltipTrigger wraps the anchor; TooltipContent holds text.",
+    "tags": [
+      "hint",
+      "a11y",
+      "radix"
+    ]
+  }
+]

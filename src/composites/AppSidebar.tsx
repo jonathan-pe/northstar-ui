@@ -1,3 +1,7 @@
+/**
+ * **AppSidebar** — import from `northstar-ui/composites`.
+ * Lightweight vertical nav (distinct from the full `Sidebar` primitive); catalog id `app-sidebar`.
+ */
 import { Button } from '@/primitives'
 import { cn } from '@/lib/utils'
 

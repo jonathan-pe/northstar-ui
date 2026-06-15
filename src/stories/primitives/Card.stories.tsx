@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -20,12 +21,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Composable surface container from `@/primitives` with semantic slots for header/content/footer.',
-      },
-    },
+    ...catalogStoryDocs('card'),
   },
 } satisfies Meta<typeof Card>
 

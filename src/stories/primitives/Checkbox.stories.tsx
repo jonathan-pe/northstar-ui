@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Checkbox } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -12,12 +13,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Wrapper around the shadcn `Checkbox` from `@/primitives`. Always expose an accessible name (label or `aria-label`).',
-      },
-    },
+    ...catalogStoryDocs('checkbox'),
   },
   argTypes: {
     disabled: { control: 'boolean' },

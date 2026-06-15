@@ -1,3 +1,7 @@
+/**
+ * Northstar **Form** (react-hook-form) — import from `northstar-ui/primitives`.
+ * Accessible field layout with `FormField`/`FormItem`/`FormMessage`; catalog id `form`.
+ */
 import {
   Form,
   FormControl,

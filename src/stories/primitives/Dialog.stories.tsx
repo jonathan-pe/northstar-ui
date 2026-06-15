@@ -13,6 +13,8 @@ import {
   DialogTrigger,
 } from '@/primitives'
 
+import { catalogStoryDocs } from '@/stories/catalog'
+
 import { StorySection } from './shared'
 
 const meta = {
@@ -21,12 +23,7 @@ const meta = {
   parameters: {
     layout: 'centered',
     northstarCanvasMinHeight: '60vh',
-    docs: {
-      description: {
-        component:
-          'Dialog primitives from `@/primitives`. Provide `DialogTitle`; use `DialogDescription` for helper copy or visually hidden text for screen readers.',
-      },
-    },
+    ...catalogStoryDocs('dialog'),
   },
 } satisfies Meta
 

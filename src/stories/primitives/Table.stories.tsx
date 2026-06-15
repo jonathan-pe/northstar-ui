@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Table',
@@ -16,12 +17,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          'Semantic table primitives from `@/primitives` for tabular data structures.',
-      },
-    },
+    ...catalogStoryDocs('table'),
   },
 } satisfies Meta<typeof Table>
 

@@ -1,3 +1,7 @@
+/**
+ * Northstar **Card** — import from `northstar-ui/primitives`.
+ * Grouped surface (header/title/content/footer); catalog id `card`.
+ */
 import {
   Card,
   CardAction,

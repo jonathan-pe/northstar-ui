@@ -51,7 +51,8 @@
   "scripts": {
     "dev": "vite",
     "generate:tokens": "tsx scripts/generate-theme-tokens.ts",
-    "build:lib": "pnpm generate:tokens && tsup && tsx scripts/build-styles.ts && tsx scripts/verify-styles.ts",
+    "generate:agent-catalog": "tsx scripts/generate-agent-catalog.ts",
+    "build:lib": "pnpm generate:agent-catalog && pnpm generate:tokens && tsup && tsx scripts/build-styles.ts && tsx scripts/verify-styles.ts",
     "build:app": "tsc -b && vite build",
     "build": "pnpm build:lib && pnpm build:app",
     "lint": "eslint .",
@@ -61,7 +62,9 @@
     "chromatic": "chromatic --build-script-name build-storybook --exit-zero-on-changes",
     "test:unit": "vitest run --project=unit",
     "test:storybook": "vitest --project=storybook",
+    "verify:agent-catalog": "tsx scripts/verify-agent-catalog.ts",
     "verify:styles": "tsx scripts/verify-styles.ts",
+    "mcp:northstar": "tsx scripts/northstar-mcp.ts",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",
@@ -92,6 +95,7 @@
     "@changesets/cli": "^2.30.0",
     "@chromatic-com/storybook": "^5.1.2",
     "@eslint/js": "^9.39.4",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "@storybook/addon-a11y": "^10.3.5",
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/addon-mcp": "^0.6.0",
@@ -124,6 +128,7 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.0",
     "vite": "^8.0.4",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.4",
+    "zod": "^4.3.6"
   }
 }

@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 
 import { Button } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StoryGrid, StorySection } from './shared'
 
@@ -39,12 +40,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Wrapper around the shadcn `Button`. Also re-exports `buttonVariants` from `@/primitives` for composing custom elements with the same styles.',
-      },
-    },
+    ...catalogStoryDocs('button'),
   },
   argTypes: {
     variant: {

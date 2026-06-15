@@ -1,3 +1,7 @@
+/**
+ * Northstar **Tooltip** — import from `northstar-ui/primitives`.
+ * Wrap with `TooltipProvider`; use trigger + content; catalog id `tooltip`.
+ */
 import {
   Tooltip,
   TooltipContent,

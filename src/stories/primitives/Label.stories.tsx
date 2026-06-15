@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Input, Label } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Label',
@@ -8,12 +9,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Accessible form label primitive from `@/primitives`. Pair with a field id via `htmlFor`.',
-      },
-    },
+    ...catalogStoryDocs('label'),
   },
 } satisfies Meta<typeof Label>
 

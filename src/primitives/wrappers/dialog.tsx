@@ -1,3 +1,7 @@
+/**
+ * Northstar **Dialog** — import from `northstar-ui/primitives`.
+ * General-purpose modal for forms and rich content; catalog id `dialog`.
+ */
 import {
   Dialog,
   DialogClose,

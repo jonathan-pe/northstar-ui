@@ -8,6 +8,7 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -17,12 +18,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Avatar primitives from `@/primitives`, including grouped avatars and status badges.',
-      },
-    },
+    ...catalogStoryDocs('avatar'),
   },
 } satisfies Meta<typeof Avatar>
 

@@ -2,12 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
 import { LoginCard } from '@/composites/LoginCard'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Composites/LoginCard',
   component: LoginCard,
   parameters: {
     layout: 'centered',
+    ...catalogStoryDocs('login-card'),
   },
   tags: ['autodocs'],
   args: {

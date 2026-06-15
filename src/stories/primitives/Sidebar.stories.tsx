@@ -13,6 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Sidebar',
@@ -21,12 +22,7 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     northstarCanvasMinHeight: '80vh',
-    docs: {
-      description: {
-        component:
-          'App-shell sidebar primitives from `@/primitives` with collapsible behavior and keyboard shortcuts.',
-      },
-    },
+    ...catalogStoryDocs('sidebar'),
   },
 } satisfies Meta<typeof Sidebar>
 

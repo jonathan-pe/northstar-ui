@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Button, Toaster, toast } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -10,12 +11,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Sonner-based `Toaster` and `toast` API from `@/primitives`. Render `<Toaster />` once near the app root; stories here include a local decorator for demos.',
-      },
-    },
+    ...catalogStoryDocs('toast'),
   },
   decorators: [
     (Story) => (

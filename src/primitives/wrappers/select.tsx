@@ -1,3 +1,7 @@
+/**
+ * Northstar **Select** — import from `northstar-ui/primitives`.
+ * Styled single-select menu; catalog id `select`.
+ */
 import {
   Select,
   SelectContent,

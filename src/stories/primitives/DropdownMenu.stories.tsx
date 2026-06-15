@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/DropdownMenu',
@@ -15,12 +16,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Menu primitives from `@/primitives` for compact command lists and contextual actions.',
-      },
-    },
+    ...catalogStoryDocs('dropdown-menu'),
   },
 } satisfies Meta<typeof DropdownMenu>
 

@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Sheet',
@@ -19,12 +20,7 @@ const meta = {
   parameters: {
     layout: 'centered',
     northstarCanvasMinHeight: '60vh',
-    docs: {
-      description: {
-        component:
-          'Sliding panel primitives from `@/primitives` for side drawers and contextual detail panels.',
-      },
-    },
+    ...catalogStoryDocs('sheet'),
   },
 } satisfies Meta<typeof Sheet>
 

@@ -1,3 +1,7 @@
+/**
+ * Northstar **Input** — import from `northstar-ui/primitives`.
+ * Single-line text field; catalog id `input`.
+ */
 import * as React from 'react'
 
 import { Input as BaseInput } from '@/components/ui/input'

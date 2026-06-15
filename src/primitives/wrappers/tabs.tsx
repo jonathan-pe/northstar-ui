@@ -1,3 +1,7 @@
+/**
+ * Northstar **Tabs** — import from `northstar-ui/primitives`.
+ * Tabbed views with list/trigger/content; includes `tabsListVariants`; catalog id `tabs`.
+ */
 import {
   Tabs,
   TabsContent,

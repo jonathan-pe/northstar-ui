@@ -13,6 +13,7 @@ import {
   AlertDialogTrigger,
   Button,
 } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/AlertDialog',
@@ -21,12 +22,7 @@ const meta = {
   parameters: {
     layout: 'centered',
     northstarCanvasMinHeight: '60vh',
-    docs: {
-      description: {
-        component:
-          'Confirmation modal primitives from `@/primitives` for destructive or high-impact actions.',
-      },
-    },
+    ...catalogStoryDocs('alert-dialog'),
   },
 } satisfies Meta<typeof AlertDialog>
 

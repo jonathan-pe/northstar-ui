@@ -1,3 +1,7 @@
+/**
+ * **DirectionProvider** / **useDirection** — re-exported from `northstar-ui/primitives`.
+ * Sets Radix direction context for RTL/LTR; pair with `dir`/`lang` on the document (`docs/rtl.md`); catalog id `direction`.
+ */
 import * as React from "react"
 import { Direction } from "radix-ui"
 

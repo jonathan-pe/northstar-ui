@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Separator } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Separator',
@@ -8,12 +9,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Visual divider primitive from `@/primitives` for sectioning content vertically or horizontally.',
-      },
-    },
+    ...catalogStoryDocs('separator'),
   },
 } satisfies Meta<typeof Separator>
 

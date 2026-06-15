@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Skeleton } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Skeleton',
@@ -8,12 +9,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Loading placeholder primitive from `@/primitives` for asynchronous UI states.',
-      },
-    },
+    ...catalogStoryDocs('skeleton'),
   },
 } satisfies Meta<typeof Skeleton>
 

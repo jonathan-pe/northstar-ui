@@ -118,6 +118,15 @@ Publishing notes:
 - run `pnpm build:lib` to produce release artifacts locally
 - ensure `NPM_TOKEN` is configured in repository secrets for automated publish
 
+## AI agents (Cursor, MCP, other assistants)
+
+- **Living repo map**: `docs/ai-context.md`
+- **Source of truth (edit here)**: `src/stories/catalog/*` — primitive/composite entries, tokens envelope, and Storybook doc text via `catalogStoryDocs()` in stories
+- **Generated JSON** (agents, MCP, npm `docs/`): `docs/agent/northstar-catalog.json` — run `pnpm generate:agent-catalog` after catalog edits; `pnpm build:lib` runs this automatically
+- **Agent skill (Cursor)**: `.cursor/skills/northstar-ui/SKILL.md` — enable the project skill so assistants default to Northstar import paths and wrapper APIs
+- **MCP server (optional)**: `pnpm mcp:northstar` exposes catalog list/get/search tools and a `northstar://catalog` JSON resource; see `docs/agent/README.md`
+- **Catalog drift check**: `pnpm verify:agent-catalog` (also runs in CI)
+
 ## Maintenance
 
 - Update playbook: `docs/maintenance.md`

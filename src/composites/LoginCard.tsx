@@ -1,3 +1,7 @@
+/**
+ * **LoginCard** — import from `northstar-ui/composites`.
+ * Email/password sign-in scaffold using Northstar `Input` and `Button`; catalog id `login-card`.
+ */
 import * as React from 'react'
 
 import { Button, Input } from '@/primitives'

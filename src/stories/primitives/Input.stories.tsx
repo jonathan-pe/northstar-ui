@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Input } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StoryGrid, StorySection } from './shared'
 
@@ -11,12 +12,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Wrapper around the shadcn `Input` from `@/primitives`. Use visible labels or `aria-label` for accessibility.',
-      },
-    },
+    ...catalogStoryDocs('input'),
   },
   argTypes: {
     type: {

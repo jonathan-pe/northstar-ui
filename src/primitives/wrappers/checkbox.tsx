@@ -1,3 +1,7 @@
+/**
+ * Northstar **Checkbox** — import from `northstar-ui/primitives`.
+ * Binary selection with Radix semantics; catalog id `checkbox`.
+ */
 import * as React from 'react'
 
 import { Checkbox as BaseCheckbox } from '@/components/ui/checkbox'

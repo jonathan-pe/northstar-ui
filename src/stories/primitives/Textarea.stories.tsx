@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Textarea } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -11,12 +12,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Wrapper around the shadcn `Textarea` from `@/primitives`. Pair with labels and validation messaging as needed.',
-      },
-    },
+    ...catalogStoryDocs('textarea'),
   },
   argTypes: {
     disabled: { control: 'boolean' },

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 import { StorySection } from './shared'
 
@@ -10,12 +11,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Tab primitives from `@/primitives`, including `tabsListVariants` for custom tab list wrappers that reuse the same CVA styles.',
-      },
-    },
+    ...catalogStoryDocs('tabs'),
   },
 } satisfies Meta
 

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useForm } from 'react-hook-form'
 
 import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 type DemoValues = { email: string }
 
@@ -41,12 +42,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'React Hook Form integration primitives from `@/primitives` for field wiring, labels, and validation messages.',
-      },
-    },
+    ...catalogStoryDocs('form'),
   },
 } satisfies Meta
 

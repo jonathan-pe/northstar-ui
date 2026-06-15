@@ -1,3 +1,7 @@
+/**
+ * Northstar **Alert Dialog** — import from `northstar-ui/primitives`.
+ * Use for confirmations and destructive actions; see catalog id `alert-dialog` in `docs/agent/northstar-catalog.json`.
+ */
 import {
   AlertDialog,
   AlertDialogAction,

@@ -1,3 +1,7 @@
+/**
+ * Northstar **Button** — import from `northstar-ui/primitives`.
+ * Primary action control with Northstar destructive/link tweaks; `buttonVariants` for class reuse; catalog id `button`.
+ */
 import * as React from 'react'
 
 import {

@@ -1,3 +1,7 @@
+/**
+ * Northstar **Textarea** — import from `northstar-ui/primitives`.
+ * Multi-line text input; catalog id `textarea`.
+ */
 import * as React from 'react'
 
 import { Textarea as BaseTextarea } from '@/components/ui/textarea'

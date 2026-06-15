@@ -35,6 +35,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Verify agent catalog
+        run: pnpm verify:agent-catalog
+
       - name: Unit tests
         run: pnpm test:unit
 

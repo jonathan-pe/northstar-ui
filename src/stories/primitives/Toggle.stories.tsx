@@ -3,6 +3,7 @@ import { expect, userEvent, within } from 'storybook/test'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 import { Toggle } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Toggle',
@@ -10,12 +11,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Pressable on/off control from `@/primitives` for formatting and tool states.',
-      },
-    },
+    ...catalogStoryDocs('toggle'),
   },
 } satisfies Meta<typeof Toggle>
 

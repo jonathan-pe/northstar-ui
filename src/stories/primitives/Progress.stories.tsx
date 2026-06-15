@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Progress } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/Progress',
@@ -8,12 +9,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'Determinate progress indicator from `@/primitives` for uploads, task flows, and staged operations.',
-      },
-    },
+    ...catalogStoryDocs('progress'),
   },
   argTypes: {
     value: { control: { type: 'range', min: 0, max: 100, step: 5 } },

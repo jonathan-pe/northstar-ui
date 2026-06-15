@@ -1,18 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/primitives'
+import { catalogStoryDocs } from '@/stories/catalog'
 
 const meta = {
   title: 'Primitives/InputOTP',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          'One-time passcode input primitives from `@/primitives` built on `input-otp`.',
-      },
-    },
+    ...catalogStoryDocs('input-otp'),
   },
 } satisfies Meta
 

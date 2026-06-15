@@ -1,3 +1,7 @@
+/**
+ * Northstar **Sidebar** — import from `northstar-ui/primitives`.
+ * Application sidebar shell with collapsible navigation; catalog id `sidebar`.
+ */
 import {
   Sidebar,
   SidebarContent,
