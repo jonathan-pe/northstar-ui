@@ -5,6 +5,9 @@
   "description": "Reusable React design library built on shadcn and Tailwind.",
   "license": "MIT",
   "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jonathan-pe/northstar-ui.git"
@@ -41,12 +44,14 @@
       "types": "./dist/tokens.d.ts",
       "import": "./dist/tokens.js",
       "require": "./dist/tokens.cjs"
-    }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./theme.css": "./dist/theme.css"
   },
   "scripts": {
     "dev": "vite",
     "generate:tokens": "tsx scripts/generate-theme-tokens.ts",
-    "build:lib": "pnpm generate:tokens && tsup",
+    "build:lib": "pnpm generate:tokens && tsup && tsx scripts/build-styles.ts && tsx scripts/verify-styles.ts",
     "build:app": "tsc -b && vite build",
     "build": "pnpm build:lib && pnpm build:app",
     "lint": "eslint .",
@@ -56,6 +61,7 @@
     "chromatic": "chromatic --build-script-name build-storybook --exit-zero-on-changes",
     "test:unit": "vitest run --project=unit",
     "test:storybook": "vitest --project=storybook",
+    "verify:styles": "tsx scripts/verify-styles.ts",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",

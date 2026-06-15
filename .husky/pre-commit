@@ -7,7 +7,7 @@ run=
 
 for f in $staged_files; do
   case "$f" in
-    src/index.css|src/styles/overrides.css)
+    src/styles/theme.css|src/styles/overrides.css)
       run=1
       break
       ;;

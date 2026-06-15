@@ -42,7 +42,7 @@ export function extractAllBlocks(css: string, selector: string): string[] {
 
 /** Relative paths from repo root; same list is used by the generator and tests. */
 export const DEFAULT_THEME_CSS_PATHS = [
-  'src/index.css',
+  'src/styles/theme.css',
   'src/styles/overrides.css',
 ] as const
 

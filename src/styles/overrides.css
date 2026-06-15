@@ -1,12 +1,12 @@
 /*
  * Project-owned styling overrides.
  *
- * Keep `src/index.css` as the shadcn/base token source of truth.
+ * Keep `src/styles/theme.css` as the shadcn/base token source of truth.
  * Put custom token or global CSS overrides here so shadcn updates can
  * regenerate base files without losing our customizations.
  *
  * Import order matters:
- * - `index.css` first
+ * - `src/styles/theme.css` first (via `src/index.css` or published `theme.css`)
  * - `styles/overrides.css` second
  */
 

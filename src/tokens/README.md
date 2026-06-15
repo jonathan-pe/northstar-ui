@@ -4,8 +4,8 @@
 
 **Theme colors** are defined in CSS only:
 
-1. `src/index.css` — shadcn/Tailwind-aligned global styles
-2. `src/styles/overrides.css` — project overrides (merged after `index.css`; later rules win)
+1. `src/styles/theme.css` — shadcn/Tailwind-aligned theme tokens and base styles
+2. `src/styles/overrides.css` — project overrides (merged after `theme.css`; later rules win)
 
 Run `**pnpm generate:tokens`** (also runs automatically before `**pnpm build:lib`**) to regenerate:
 
